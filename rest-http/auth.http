@@ -1,0 +1,27 @@
+@HOST = http://localhost:9000/v1
+
+### login
+POST {{HOST}}/auth/sign-in
+Content-Type: application/json
+
+{
+  "email":"hello@gmail.com",
+  "password":"hello123@"
+}
+
+### register
+POST {{HOST}}/auth/sign-up
+Content-Type: application/json
+
+{
+  "name":"bao tran",
+  "email":"baotrandinh.ute@gmail.com",
+  "password":"hello123@"
+}
+
+### active account
+GET {{HOST}}/auth/active?token=1eb6b7d2-adc1-4040-bad7-fc060cd4aec2&userId=18
+
+{
+
+}

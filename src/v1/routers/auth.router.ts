@@ -9,4 +9,6 @@ const {
 } = authSchema;
 router.post('/sign-in', validation(signInSchema), authController.signIn);
 router.post('/sign-up', validation(signUpSchema), authController.signUp);
+router.get('/active', authController.activeAccount);
+
 export default router;
