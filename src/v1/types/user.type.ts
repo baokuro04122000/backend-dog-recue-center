@@ -7,16 +7,21 @@ export interface IUserSignInPayload {
     token: string;
     refreshToken: string;
 }
-export interface UserSignInBody {
+export type UserSignInBody = {
     email: string;
     password: string;
 }
 
-export interface UserSignUpBody {
+export type UserSignUpBody = {
     email: string;
     name: string;
     avatar?: string;
     password: string;
+}
+
+export type ActiveAccountBody = {
+    token: string,
+    userId: number
 }
 
 export interface IUserSignUpPayload {
