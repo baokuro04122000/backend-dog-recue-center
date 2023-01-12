@@ -56,12 +56,15 @@ export const signIn = ({
       }
 
       const payload: IUserSignInPayload = {
-        id: account.id,
-        name: account.name,
-        email: account.email,
-        avatar: account.avatar,
+        data:{
+          id: account.id,
+          name: account.name,
+          email: account.email,
+          avatar: account.avatar,
+          
+        },
         active: account.active,
-        token: await generateToken({
+        accessToken: await generateToken({
           id: account.id,
           name: account.name,
           email: account.email,

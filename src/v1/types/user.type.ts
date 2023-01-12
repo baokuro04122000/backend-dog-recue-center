@@ -1,11 +1,13 @@
 export interface IUserSignInPayload {
-    id: number;
-    email: string;
-    name: string;
-    avatar: string;
-    active: boolean;
-    token: string;
+    accessToken: string;
     refreshToken: string;
+    data:{
+        id: number;
+        email: string;
+        name: string;
+        avatar: string;
+    }
+    active?: boolean;
 }
 export type UserSignInBody = {
     email: string;
