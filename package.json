@@ -13,6 +13,7 @@
     "start": "node .",
     "dev:start": "npm-run-all build start",
     "dev": "nodemon --config nodemon.json --exec npm run dev:start",
+    "redis-commander": "redis-commander --redis-port 10775 --redis-host redis-10775.c89.us-east-1-3.ec2.cloud.redislabs.com --redis-username default --redis-password 1MCCSv42RQTRpmkGuo8Hm0wTP5JVtxZp",
     "test": "cross-env NODE_ENV=development jest --no-cache --testTimeout=30000"
   },
   "keywords": [],
@@ -35,6 +36,7 @@
     "nodemon": "^2.0.20",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.2",
+    "redis-commander": "^0.8.0",
     "shelljs": "^0.8.5",
     "supertest": "^6.3.3",
     "ts-jest": "^29.0.3",

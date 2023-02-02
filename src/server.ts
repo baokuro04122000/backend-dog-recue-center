@@ -11,7 +11,8 @@ require('./v1/databases/init.redis');
 
 app.use(express.json());
 app.use(cors({
-  origin: '*'
+  origin: 'http://localhost:3000',
+  credentials: true
 }));
 
 // configure routes

@@ -70,8 +70,7 @@ export const signIn = ({
           email: account.email,
           avatar: account.avatar
         },{
-          expiresIn: '1h',
-          algorithm: 'RS256'
+          expiresIn: '1h'
         }),
         refreshToken: await generateToken({
           id: account.id,
@@ -79,12 +78,12 @@ export const signIn = ({
           email: account.email,
           avatar: account.avatar
         }, {
-          expiresIn: '7d',
-          algorithm: 'RS256'
+          expiresIn: '7d'
         })
       };
       return resolve(payload);
     } catch (error) {
+      console.log(error)
       logger.error(JSON.stringify(error));
       return reject(errorResponse({
         error: Message.default.INTERNAL_SERVER_ERROR,
