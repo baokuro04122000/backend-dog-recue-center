@@ -4,3 +4,4 @@ dist
 rest-http
 tests
 tools
+mysql_db
