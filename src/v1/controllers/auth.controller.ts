@@ -12,10 +12,10 @@ export const signIn:RequestHandler = async (req: Request, res: Response) => {
   const {email, password} = req.body;
   try {
     const payload = await authService.signIn({email: filter.escape(email), password: filter.escape(password)});
-    redis.set(payload.data.id + '_token', payload.accessToken, (done) => {
+    redis.set(payload.data.id + '_token', payload.accessToken, 'EX', Number(process.env.ACCESS_TOKEN_REDIS_EXPIRED), (done) => {
         logger.info('redis set token:::', done);
     });
-    redis.set(payload.data.id + '_refreshtoken', payload.refreshToken, (done) => {
+    redis.set(payload.data.id + '_refreshtoken', payload.refreshToken,'EX', Number(process.env.REFRESH_TOKEN_REDIS_EXPIRED), (done) => {
         logger.info('redis set refresh token:::', done);
     });
     return res.status(200).json(payload);
