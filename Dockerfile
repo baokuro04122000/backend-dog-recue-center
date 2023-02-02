@@ -12,9 +12,8 @@ RUN npm install -g npm@9.4.0
 
 COPY . .
 
-
 EXPOSE 9000
 
 VOLUME ["/app/node_modules"]
-
 CMD ["npm", "run", "dev"]
+
