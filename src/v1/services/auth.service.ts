@@ -61,7 +61,7 @@ export const signIn = ({
           name: account.name,
           email: account.email,
           avatar: account.avatar,
-          
+
         },
         active: account.active,
         accessToken: await generateToken({
@@ -83,7 +83,6 @@ export const signIn = ({
       };
       return resolve(payload);
     } catch (error) {
-      console.log(error)
       logger.error(JSON.stringify(error));
       return reject(errorResponse({
         error: Message.default.INTERNAL_SERVER_ERROR,
@@ -160,10 +159,11 @@ export const activeAccount = ({token, userId}: ActiveAccountBody): Promise<INoti
       }
     });
 
-    if(!tokenValid) return reject(errorResponse({
+    if(!tokenValid) { return reject(errorResponse({
       error: Message.default.token_expired,
       status: 400
-    }))
+    }));
+    }
 
     await usersModel.update({
       active: true
@@ -171,12 +171,12 @@ export const activeAccount = ({token, userId}: ActiveAccountBody): Promise<INoti
       where:{
         id: userId
       }
-    })
+    });
 
     tokenValid.destroy()
     .then(() => logger.info('delete token active account success'))
-    .catch((err) => logger.error(JSON.stringify(err)))
-    
+    .catch((err) => logger.error(JSON.stringify(err)));
+
     return resolve({
       message: Message.default.active_account_success,
       status:200,

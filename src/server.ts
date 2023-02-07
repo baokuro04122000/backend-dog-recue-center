@@ -11,7 +11,7 @@ require('./v1/databases/init.redis');
 
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://frontend-dog-rescue-center.vercel.app'],
   credentials: true
 }));
 
