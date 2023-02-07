@@ -23,4 +23,3 @@ services:
       - DEV_DB_PASSWORD=admin
       - DEV_DB_NAME=database_test
 
-
