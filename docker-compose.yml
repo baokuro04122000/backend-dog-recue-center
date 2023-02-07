@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  mysql_database:
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=database_test
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - "4000:3306"
+    volumes:
+      - ./mysql_db:/data/db    
+  api:
+    image: tdbao1/backend-dog-rescue:1.0.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql_database
+    environment:
+      - DEV_DB_HOST=54.255.180.132
+      - DEV_DB_PORT=4000
+      - DEV_DB_USERNAME=root
+      - DEV_DB_PASSWORD=admin
+      - DEV_DB_NAME=database_test
+
+

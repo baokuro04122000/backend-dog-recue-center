@@ -6,24 +6,24 @@ export interface IUserSignInPayload {
         email: string;
         name: string;
         avatar: string;
-    }
+    };
     active?: boolean;
 }
-export type UserSignInBody = {
+export interface UserSignInBody {
     email: string;
     password: string;
 }
 
-export type UserSignUpBody = {
+export interface UserSignUpBody {
     email: string;
     name: string;
     avatar?: string;
     password: string;
 }
 
-export type ActiveAccountBody = {
-    token: string,
-    userId: number
+export interface ActiveAccountBody {
+    token: string;
+    userId: number;
 }
 
 export interface IUserSignUpPayload {

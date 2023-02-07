@@ -49,25 +49,27 @@ export const signUp: RequestHandler = async (req: Request, res: Response) => {
 
 export const activeAccount: RequestHandler = async (req: Request, res: Response) => {
   const {token, userId} = req.query;
-  if(!filter.isUUID(token as string)) return res.status(400).json({
+  if(!filter.isUUID(token as string)) { return res.status(400).json({
     status: 400,
     errors:{
       message: Message.token_invalid
     }
   });
-  if(!filter.isNumeric(userId as string)) return res.status(400).json({
+  }
+  if(!filter.isNumeric(userId as string)) { return res.status(400).json({
     status: 400,
     errors:{
       message: Message.user_id_invalid
     }
   });
-  
+  }
+
   try {
     const payload = await authService.activeAccount({
       token: token as string,
       userId: Number(userId)
     });
-    
+
     return res.status(payload.status).json(payload);
   } catch (error) {
     const err = error as ErrorResponse;
