@@ -6,6 +6,7 @@ import {
 } from 'sequelize';
 import cron from 'node-cron';
 import User from './users.mysql.model'
+
 class Token extends Model {
   public id!: number;
   public token!: string;
@@ -36,7 +37,7 @@ Token.addHook('beforeCreate', (instance: any) => {
   instance.expiration = sequelize.literal('DATE_ADD(NOW(), INTERVAL 1 DAY)');
 });
 
-Token.belongsTo(User, {as: 'user', foreignKey: 'userId'})
+Token.belongsTo(User, {as: 'user', foreignKey: 'userId'});
 export default Token;
 
 async function deleteExpiredTokens() {
