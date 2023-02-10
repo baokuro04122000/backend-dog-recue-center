@@ -11,5 +11,9 @@ export default {
     'active_account_success':'The account is activated',
     'token_invalid':'The token is invalid',
     'token_expired':'The token is expired',
-    'user_id_invalid':'The user id is invalid'
+    'user_id_invalid':'The user id is invalid',
+    'email_reset_password_success':"The link reset password was sent your email, please check email to reset password",
+    'reset_password_success':"Your password was reset, please login again",
+    'account_activated':"This account is activated",
+    'resend_email_active':"The email active was sent, please check your email to active your account"
 };

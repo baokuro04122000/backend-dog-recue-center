@@ -35,3 +35,6 @@ export interface IUserSignUpPayload {
     token: string;
     refreshToken: string;
 }
+
+export type ResetPasswordBody = Partial<ActiveAccountBody>
+& { password: string }

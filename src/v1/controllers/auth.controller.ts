@@ -75,3 +75,40 @@ export const activeAccount: RequestHandler = async (req: Request, res: Response)
   }
 
 };
+
+export const emailResetPassword: RequestHandler = async (req: Request, res: Response) => {
+  const {email} = req.body;
+  try {
+    const payload = await authService.emailResetPassword(email)
+    return res.status(payload.status).json(payload)
+  } catch (error) {
+    const err = error as ErrorResponse;
+    return res.status(err.status).json(err);
+  }
+}
+
+export const resetPassword: RequestHandler = async (req: Request, res: Response) => {
+  const {token, userId, password} = req.body;
+  try {
+    const payload = await authService.resetPassword({
+      token,
+      userId,
+      password
+    })
+    return res.status(payload.status).json(payload)
+  } catch (error) {
+    const err = error as ErrorResponse;
+    return res.status(err.status).json(err);
+  }
+}
+
+export const resendEmailActive: RequestHandler = async (req: Request, res: Response) => {
+  const {email} = req.body;
+  try {
+    const payload = await authService.resendEmailActive(email);
+    return res.status(payload.status).json(payload)
+  } catch (error) {
+    const err = error as ErrorResponse;
+    return res.status(err.status).json(err);
+  }
+}

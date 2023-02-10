@@ -4,10 +4,12 @@ services:
   mysql_database:
     image: mysql
     environment:
-      - MYSQL_DATABASE=database_test
-      - MYSQL_ROOT_PASSWORD=admin
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: database_test
+      MYSQL_USER: dev_account
+      MYSQL_PASSWORD: dev
     ports:
-      - "4000:3306"
+      - "3306:3306"
     volumes:
       - ./mysql_db:/data/db
     
@@ -16,17 +18,14 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 80:9000
-    volumes:
-      - .:/app
-      - '/app/node_modules'
+      - 8080:8080
     depends_on:
       - mysql_database
     environment:
-      - DEV_DB_HOST=mysql_database
+      - DEV_DB_HOST=54.255.180.132
       - DEV_DB_PORT=3306
-      - DEV_DB_USERNAME=root
-      - DEV_DB_PASSWORD=admin
+      - DEV_DB_USERNAME=dev_account
+      - DEV_DB_PASSWORD=dev
       - DEV_DB_NAME=database_test
       
 

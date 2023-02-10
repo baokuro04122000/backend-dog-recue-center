@@ -12,8 +12,9 @@ RUN npm install -g npm@9.4.0
 
 COPY . .
 
-EXPOSE 9000
+RUN npm run build 
 
-VOLUME ["/app/node_modules"]
-CMD ["npm", "run", "dev"]
+EXPOSE 8080
+
+CMD ["npm", "start"]
 
