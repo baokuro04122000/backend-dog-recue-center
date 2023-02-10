@@ -25,3 +25,29 @@ GET {{HOST}}/auth/active?token=1eb6b7d2-adc1-4040-bad7-fc060cd4aec2&userId=18
 {
 
 }
+
+### check send email
+POST {{HOST}}/auth/email-reset-password
+Content-Type: application/json
+
+{
+  "email":"baotrandinh.ute@gmail.com"
+}
+
+### reset password
+POST {{HOST}}/auth/reset
+Content-Type: application/json
+
+{
+  "token":"",
+  "userId":"",
+  "password":""
+}
+
+### resend email
+POST {{HOST}}/auth/resend
+Content-Type: application/json
+
+{
+  "email":"baotrandinh.ute@gmail.com"
+}

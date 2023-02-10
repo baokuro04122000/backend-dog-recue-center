@@ -20,6 +20,20 @@ const authValidation = {
         .required()
         .min(2, Message.name_min_length)
         .max(50, Message.name_min_length)
+    }),
+    userCheckEmailSchema: yup.object({
+        email: yup.string()
+        .required()
+        .email()
+    }),
+    userResetPasswordSchema: yup.object({
+        token: yup.string()
+        .required(),
+        userId: yup.string()
+        .required(),
+        password: yup.string()
+        .required()
+        .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}$/,Message.password_invalid)
     })
 };
 export default authValidation;

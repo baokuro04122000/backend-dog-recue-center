@@ -1,9 +1,12 @@
 import sequelize from '../databases/init.mysql';
 import {
   DataTypes,
-  Model
+  Model,
+  Op
 } from 'sequelize';
-import User from './users.mysql.model';
+import cron from 'node-cron';
+import User from './users.mysql.model'
+
 class Token extends Model {
   public id!: number;
   public token!: string;
@@ -36,3 +39,17 @@ Token.addHook('beforeCreate', (instance: any) => {
 
 Token.belongsTo(User, {as: 'user', foreignKey: 'userId'});
 export default Token;
+
+async function deleteExpiredTokens() {
+  await Token.destroy({
+    where: {
+      expiration: {
+        [Op.lt]: new Date(),
+      },
+    },
+  });
+}
+
+cron.schedule('0 0 */12 * *', async () => {
+  await deleteExpiredTokens();
+});
