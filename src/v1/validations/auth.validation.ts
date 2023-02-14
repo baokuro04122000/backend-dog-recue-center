@@ -19,7 +19,7 @@ const authValidation = {
         name: yup.string()
         .required()
         .min(2, Message.name_min_length)
-        .max(50, Message.name_min_length)
+        .max(50, Message.name_max_length)
     }),
     userCheckEmailSchema: yup.object({
         email: yup.string()

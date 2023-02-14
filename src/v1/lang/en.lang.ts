@@ -15,5 +15,6 @@ export default {
     'email_reset_password_success':"The link reset password was sent your email, please check email to reset password",
     'reset_password_success':"Your password was reset, please login again",
     'account_activated':"This account is activated",
-    'resend_email_active':"The email active was sent, please check your email to active your account"
+    'resend_email_active':"The email active was sent, please check your email to active your account",
+    'token_and_userId_required':"Token and userId are required"
 };

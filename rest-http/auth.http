@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
   "email":"baotrandinh.ute@gmail.com",
-  "password":"hello123@"
+  "password":"hello124@"
 }
 
 ### register
@@ -15,12 +15,12 @@ Content-Type: application/json
 
 {
   "name":"bao tran",
-  "email":"baotrandinh.ute@gmail.com",
-  "password":"hello123@"
+  "password":"hello",
+  "email":"baotrandinh100@gmail.com"
 }
 
 ### active account
-GET {{HOST}}/auth/active?token=1eb6b7d2-adc1-4040-bad7-fc060cd4aec2&userId=18
+GET {{HOST}}/auth/active?token=375a19ea-d382-48c4-aa87-d191009e581e&userId=2
 
 {
 
@@ -31,7 +31,7 @@ POST {{HOST}}/auth/email-reset-password
 Content-Type: application/json
 
 {
-  "email":"baotrandinh.ute@gmail.com"
+  "email":"baotrandinh100@gmail.com"
 }
 
 ### reset password
@@ -39,9 +39,9 @@ POST {{HOST}}/auth/reset
 Content-Type: application/json
 
 {
-  "token":"",
-  "userId":"",
-  "password":""
+  "userId":2,
+  "password":"hello123@",
+  "token":"375a19ea-d382-48c4-aa87-d191009e581e"
 }
 
 ### resend email
