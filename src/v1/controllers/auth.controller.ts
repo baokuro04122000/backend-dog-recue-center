@@ -49,14 +49,22 @@ export const signUp: RequestHandler = async (req: Request, res: Response) => {
 
 export const activeAccount: RequestHandler = async (req: Request, res: Response) => {
   const {token, userId} = req.query;
-  if(!filter.isUUID(token as string)) { return res.status(400).json({
+  if(!token || !userId) {return res.status(400).json({
+    status: 400,
+    errors:{
+      message: Message.token_and_userId_required
+    }
+  })}
+
+  if(!filter.isUUID(token.toString())) { return res.status(400).json({
     status: 400,
     errors:{
       message: Message.token_invalid
     }
   });
   }
-  if(!filter.isNumeric(userId as string)) { return res.status(400).json({
+
+  if(!filter.isNumeric(""+userId)) { return res.status(400).json({
     status: 400,
     errors:{
       message: Message.user_id_invalid
@@ -91,6 +99,23 @@ export const emailResetPassword: RequestHandler = async (req: Request, res: Resp
 
 export const resetPassword: RequestHandler = async (req: Request, res: Response) => {
   const {token, userId, password} = req.body;
+  
+  if(!filter.isUUID(token as string)) { return res.status(400).json({
+    status: 400,
+    errors:{
+      message: Message.token_invalid
+    }
+  });
+  }
+  
+  if(!filter.isNumeric(""+userId)) { return res.status(400).json({
+    status: 400,
+    errors:{
+      message: Message.user_id_invalid
+    }
+  });
+  }
+  
   try {
     const payload = await authService.resetPassword({
       token,
