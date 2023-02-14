@@ -6,8 +6,6 @@ COPY package*.json /app/
 COPY tsconfig.json /app/
 COPY tslint.json /app/
 
-
-RUN npm install -g npm@9.4.2
 RUN npm install
 RUN npm install typescript -g
 
