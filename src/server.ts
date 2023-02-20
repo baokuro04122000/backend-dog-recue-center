@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import * as routes from './v1/routers';
 import authRoutes from './v1/routers/auth.router';
+import dogRoutes from './v1/routers/dogs.router';
 const app = express();
 
 // initial database
@@ -17,6 +18,7 @@ app.use(cors({
 
 // configure routes
 routes.register(app);
-app.use('/v1/auth',authRoutes);
+app.use('/v1/auth', authRoutes);
+app.use('/v1/api', dogRoutes)
 
 export default app;

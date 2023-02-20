@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
   "email":"baotrandinh.ute@gmail.com",
-  "password":"hello124@"
+  "password":"hello123@"
 }
 
 ### register
@@ -15,12 +15,12 @@ Content-Type: application/json
 
 {
   "name":"bao tran",
-  "password":"hello",
-  "email":"baotrandinh100@gmail.com"
+  "password":"hello123@",
+  "email":"baotrandinh.ute@gmail.com"
 }
 
 ### active account
-GET {{HOST}}/auth/active?token=375a19ea-d382-48c4-aa87-d191009e581e&userId=2
+GET {{HOST}}/auth/active?token=ecd1b51b-594b-411e-b99d-a427c5974b39&userId=6
 
 {
 

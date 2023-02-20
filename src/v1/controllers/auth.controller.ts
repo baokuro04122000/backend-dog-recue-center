@@ -18,6 +18,7 @@ export const signIn:RequestHandler = async (req: Request, res: Response) => {
     redis.set(payload.data.id + '_refreshtoken', payload.refreshToken,'EX', Number(process.env.REFRESH_TOKEN_REDIS_EXPIRED), (done) => {
         logger.info('redis set refresh token:::', done);
     });
+    console.log('payload:::', payload)
     return res.status(200).json(payload);
   } catch (error) {
     const err = error as ErrorResponse;

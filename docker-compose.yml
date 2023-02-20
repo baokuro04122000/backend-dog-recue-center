@@ -9,7 +9,7 @@ services:
       MYSQL_USER: dev_account
       MYSQL_PASSWORD: dev
     ports:
-      - "3306:3306"
+      - "4000:3306"
     volumes:
       - ./mysql_db:/data/db    
   api:
@@ -19,8 +19,8 @@ services:
     depends_on:
       - mysql_database
     environment:
-      - DEV_DB_HOST=54.255.180.132
-      - DEV_DB_PORT=4000
+      - DEV_DB_HOST=mysql_database
+      - DEV_DB_PORT=3306
       - DEV_DB_USERNAME=root
       - DEV_DB_PASSWORD=admin
       - DEV_DB_NAME=database_test

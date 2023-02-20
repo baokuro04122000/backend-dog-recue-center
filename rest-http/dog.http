@@ -1,0 +1,42 @@
+@HOST = http://localhost:9000/v1/api
+
+### add a dog
+POST {{HOST}}/breed/add
+Content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImJhbyB0cmFuIiwiZW1haWwiOiJiYW90cmFuZGluaC51dGVAZ21haWwuY29tIiwiYXZhdGFyIjoiIiwiYWN0aXZlIjoxLCJpYXQiOjE2NzY2MDAzNjgsImV4cCI6MTY3NjYwNzU2OH0.bpGdtFQ5KoAk04JwXrB76_G8aMiDKMij7vz-BSTgRjY'
+
+{
+  "name":"test 1",
+  "title":"title 1",
+  "breed":"breed 1",
+  "hobbies":"hobbies 1",
+  "avatar":"avatar 1",
+  "address":"address 1",
+  "age":"3m",
+  "about":"about 1",
+  "city":"city"
+}
+
+### edit a dog
+PUT {{HOST}}/breed/edit
+Content-Type: application/json
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6ImJhbyB0cmFuIiwiZW1haWwiOiJiYW90cmFuZGluaC51dGVAZ21haWwuY29tIiwiYXZhdGFyIjoiIiwiYWN0aXZlIjoxLCJpYXQiOjE2NzY2MDAzNjgsImV4cCI6MTY3NjYwNzU2OH0.bpGdtFQ5KoAk04JwXrB76_G8aMiDKMij7vz-BSTgRjY'
+
+{
+  "name":"test 2",
+  "title":"title 123456789",
+  "breed":"breed 1",
+  "hobbies":"hobbies 1",
+  "avatar":"avatar 1",
+  "address":"address 1",
+  "age":"3m",
+  "about":"about 1",
+  "city":"city",
+  "id":3
+}
+
+### get a details dog
+GET {{HOST}}/breed/get?id=3
+
+### get dog list
+GET {{HOST}}/breeds/list?page=1

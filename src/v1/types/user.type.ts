@@ -25,7 +25,6 @@ export interface ActiveAccountBody {
     token: string;
     userId: number;
 }
-
 export interface IUserSignUpPayload {
     id: number;
     email: string;
@@ -34,6 +33,13 @@ export interface IUserSignUpPayload {
     active: boolean;
     token: string;
     refreshToken: string;
+}
+
+export type TokenPayload = {
+    id: number,
+    name: string,
+    email: string,
+    active: boolean
 }
 
 export type ResetPasswordBody = Partial<ActiveAccountBody>
