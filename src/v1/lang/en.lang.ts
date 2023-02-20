@@ -16,5 +16,13 @@ export default {
     'reset_password_success':"Your password was reset, please login again",
     'account_activated':"This account is activated",
     'resend_email_active':"The email active was sent, please check your email to active your account",
-    'token_and_userId_required':"Token and userId are required"
+    'token_and_userId_required':"Token and userId are required",
+    'token_not_found':"Token not found",
+    'create_dog_success':"Creating is success",
+    'dog_not_found':"The post not found",
+    'id_empty':"Id is required",
+    'id_invalid':"Id is invalid",
+    'bad_access':"Unauthorized access",
+    'data_empty':"Data is empty",
+    'update_dog_success':"Updating is success"
 };

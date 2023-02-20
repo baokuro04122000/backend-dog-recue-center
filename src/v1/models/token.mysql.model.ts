@@ -8,7 +8,7 @@ import cron from 'node-cron';
 import User from './users.mysql.model'
 
 class Token extends Model {
-  public id!: number;
+  readonly id!: number;
   public token!: string;
   public expiration!: Date;
 }

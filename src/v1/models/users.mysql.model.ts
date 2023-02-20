@@ -5,12 +5,14 @@ import {
 } from 'sequelize';
 
 class User extends Model {
-  public id!: number;
+  readonly id!: number;
   public name!: string;
-  public email!: string;
+  readonly email!: string;
   public password!: string;
   public active!: boolean;
   public avatar!: string;
+  public phone!: string;
+  public address!: string;
 }
 
 User.init({
@@ -27,6 +29,14 @@ User.init({
     type: DataTypes.STRING,
     unique: true,
     allowNull: false
+  },
+  phone:{
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  address: {
+    type: DataTypes.STRING,
+    allowNull: true
   },
   avatar: {
     type: DataTypes.STRING,

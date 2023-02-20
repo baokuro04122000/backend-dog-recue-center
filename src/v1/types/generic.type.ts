@@ -1,6 +1,6 @@
 
 export interface INotifyPayload <T>{
   status: number;
-  message: string;
+  message?: string;
   data?: T;
 }

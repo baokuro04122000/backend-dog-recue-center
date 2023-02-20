@@ -16,7 +16,8 @@ import {
   INotifyPayload
 } from '../types/generic.type';
 import {
-  generateToken
+  generateAccessToken,
+  generateRefreshToken
 } from '../middlewares/token.middleware';
 import * as Message from '../lang/en.lang';
 import redis from '../databases/init.redis';
@@ -24,7 +25,6 @@ import logger from '../core/loggers';
 import crypto from 'crypto';
 
 require('dotenv-safe').config();
-
 
 
 export const signIn = ({
@@ -67,21 +67,23 @@ export const signIn = ({
 
         },
         active: account.active,
-        accessToken: await generateToken({
+        accessToken: await generateAccessToken({
           id: account.id,
           name: account.name,
           email: account.email,
-          avatar: account.avatar
+          avatar: account.avatar,
+          active: account.active
         },{
-          expiresIn: '1h'
+          expiresIn: process.env.TTL_ACCESS_TOKEN || '1h'
         }),
-        refreshToken: await generateToken({
+        refreshToken: await generateRefreshToken({
           id: account.id,
           name: account.name,
           email: account.email,
-          avatar: account.avatar
+          avatar: account.avatar,
+          active: account.active
         }, {
-          expiresIn: '7d'
+          expiresIn: process.env.TTL_REFRESH_TOKEN || '7d'
         })
       };
       return resolve(payload);

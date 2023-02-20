@@ -31,7 +31,8 @@
         },
         "typeRoots": [
             "node_modules/@types",
-            "node_modules/yup"
+            "node_modules/yup",
+            "./src/types"
         ],
         "lib": [
             "dom",
